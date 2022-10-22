@@ -1,0 +1,7 @@
+## Interface: 100002
+## Version: 1.0.0
+## Title: Session Time
+## Notes: Shows your current session Time
+## Author: Aww
+
+SessionTime.lua
