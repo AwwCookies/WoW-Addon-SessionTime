@@ -3,5 +3,5 @@
 ## Title: Session Time
 ## Notes: Shows your current session Time
 ## Author: Aww
-
+## SavedVariables: SessionTimeVars
 SessionTime.lua
