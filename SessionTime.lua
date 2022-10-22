@@ -4,14 +4,11 @@ f:RegisterEvent("ADDON_LOADED")
 
 local defaultSettings = {
     fontSize = 10,
-    offsetX = -40,
-    offsetY = -4   
+    offsetX = -5,
+    offsetY = -1   
 }
 
 SessionTimeVars = SessionTimeVars or defaultSettings
-
-
-
 
 -- AddOn Settings
 local function createAddonSetting()
@@ -56,7 +53,7 @@ local function createAddonSetting()
         options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right);
         Settings.CreateSlider(category, setting, options, tooltip)
      end
-    
+
     Settings.RegisterAddOnCategory(category)
 end
 
@@ -68,7 +65,7 @@ end)
 
 f:SetScript("OnUpdate", function()
     t:SetTextColor(255, 255, 255, 0.7)
-    t:SetPoint("BOTTOMLEFT", CharacterMicroButton, "LEFT", SessionTimeVars.offsetX, SessionTimeVars.offsetY)
+    t:SetPoint("RIGHT", CharacterMicroButton, "LEFT", SessionTimeVars.offsetX, SessionTimeVars.offsetY)
     t:SetFont("Fonts\\FRIZQT__.TTF", SessionTimeVars.fontSize, nil)
     t:SetText(SecondsToTime(GetSessionTime(), true))
 end)
