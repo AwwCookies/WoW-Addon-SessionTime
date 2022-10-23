@@ -5,7 +5,7 @@ f:RegisterEvent("ADDON_LOADED")
 local defaultSettings = {
     fontSize = 10,
     offsetX = -5,
-    offsetY = -1   
+    offsetY = -1
 }
 
 SessionTimeVars = SessionTimeVars or defaultSettings
@@ -57,10 +57,18 @@ local function createAddonSetting()
     Settings.RegisterAddOnCategory(category)
 end
 
-f:SetScript("OnEvent", function(self, event, addonName)
-    if (event == "ADDON_LOADED" and addonName == "SessionTime") then
-        createAddonSetting()
-    end
+-- f:SetScript("OnEvent", function(self, event, addonName)
+--     if (event == "ADDON_LOADED" and addonName == "SessionTime") then
+--         createAddonSetting()
+--     end
+-- end)
+
+QueueStatusButtonIcon:HookScript("OnShow", function()
+    SessionTimeVars.offsetX = SessionTimeVars.offsetX - 32
+end)
+
+QueueStatusButtonIcon:HookScript("OnHide", function()
+    SessionTimeVars.offsetX = SessionTimeVars.offsetX + 32
 end)
 
 f:SetScript("OnUpdate", function()
